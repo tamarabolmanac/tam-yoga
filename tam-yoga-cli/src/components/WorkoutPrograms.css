@@ -1,0 +1,8 @@
+.ty-button {
+  border: solid !important;
+  background-color: rgba(185, 24, 65, 0.2) !important;
+}
+
+.ty-delete-button {
+  font-size: 6px !important;
+}

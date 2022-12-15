@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom"
+import './WorkoutPrograms.css'
+import Button from 'react-bootstrap/Button'
 
 class WorkoutPrograms extends React.Component {
   constructor(props) {
@@ -14,13 +16,11 @@ class WorkoutPrograms extends React.Component {
     fetch(url)
       .then( response => {
         if (response.ok) {
-          debugger
           return response.json();
         }
         throw new Error("Network response was not ok.");
       })
       .then(response => {
-        debugger
         this.setState({ workout_programs: response })
        })
   }
@@ -35,9 +35,9 @@ class WorkoutPrograms extends React.Component {
             <div className="col-sm-12 col-lg-2">
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-danger ty-delete-button"
               >
-                Delete Recipe
+                Delete
               </button>
             </div>
           </div>
@@ -47,9 +47,9 @@ class WorkoutPrograms extends React.Component {
 
     const noPrograms = (
       <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
-        <h4>
-          No plans yet. Why not <Link to="/new_plan">create one</Link>
-        </h4>
+        <h6>
+          No plans yet. Click above button to create one
+        </h6>
       </div>
     );
     return (
@@ -62,10 +62,10 @@ class WorkoutPrograms extends React.Component {
             </p>
           </div>
         </section>
-        <div className="py-5">
+        <div>
           <main className="container">
             <div className="text-right mb-3">
-              <Link to="/new_plan" className="btn custom-button">
+              <Link to="/new_plan" className="btn custom-button ty-button">
                 Create New Workout Plan
               </Link>
             </div>

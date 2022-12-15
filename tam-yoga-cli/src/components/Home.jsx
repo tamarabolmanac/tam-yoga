@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Home.css'
 
 export default () => (
   <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
@@ -12,7 +13,7 @@ export default () => (
         <hr className="my-4" />
         <Link
           to="/workout_programs"
-          className="btn btn-lg custom-button"
+          className="btn btn-lg custom-button ty-button"
           role="button"
         >
           View Classes

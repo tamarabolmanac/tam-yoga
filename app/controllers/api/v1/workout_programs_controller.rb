@@ -3,7 +3,7 @@ class Api::V1::WorkoutProgramsController < ApplicationController
 
   def index
     workout_programs = WorkoutProgram.all
-    byebug
+    
     render json: workout_programs
   end
 
@@ -19,7 +19,7 @@ class Api::V1::WorkoutProgramsController < ApplicationController
   private
 
   def wp_params
-    params.permit(:description, :category)
+    params.require(:workout_program).permit(:description, :category)
   end
   
   def set_workout_program

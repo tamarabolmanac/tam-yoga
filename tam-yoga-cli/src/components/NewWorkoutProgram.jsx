@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import './NewWorkoutPlan.css';
 
 class NewWorkoutProgram extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class NewWorkoutProgram extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const url = "new_workout_program"
+    const url = "http://localhost:3000/api/v1/workout_programs";
 
     const { description, category } = this.state;
 
@@ -45,12 +46,11 @@ class NewWorkoutProgram extends React.Component {
       description,
       category
     }
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+    //const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
       method: "POST",
       headers: {
-        "X-CSRF-Token": token,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(body)
@@ -72,32 +72,33 @@ class NewWorkoutProgram extends React.Component {
     const defaultOption = workout_categories[0];
 
     return (
-      <div className="container mt-5">
+      <div className="container py-5">
         <div className="row">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
-            <h1 className="font-weight-normal mb-5">
+            <h1 className="display-4">
               Add a new plan to your awesome workout collection
             </h1>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label htmlFor="workoutDescription">Workout description</label>
-                <input
-                  type="text"
+                <textarea
                   name="description"
                   id="workoutDescription"
-                  className="form-control"
+                  className="form-control new-workout-field"
                   required
                   onChange={this.onChange}
                 />
               </div>
+              <br/>
               <div className="form-group">
                 <label htmlFor="workoutCategory">Category</label>
                 
-                <Dropdown options={workout_categories} onChange={this.onSelect} value={defaultOption} placeholder="Select category" />
+                <Dropdown options={workout_categories} onChange={this.onSelect} value={defaultOption} placeholder="Select category" className='new-workout-field'/>
               </div>
-              <button type="submit" className="btn custom-button mt-3">
+              <button type="submit" className="btn custom-button mt-3 create-workout-button ty-button">
                 Create Plan
               </button>
+              <br/>
               <Link to="/workout_programs" className="btn btn-link mt-3">
                 Back to plans
               </Link>
