@@ -1,8 +1,20 @@
 .ty-button {
   border: solid !important;
-  background-color: rgba(185, 24, 65, 0.2) !important;
+  background-color: rgba(126, 10, 110, 0.8) !important;
+  color: rgb(236, 167, 167) !important;
 }
 
 .ty-delete-button {
   font-size: 6px !important;
+  border: solid !important;
+  background-color: rgba(224, 46, 46, 0.8) !important;  
+  font-size: 6px !important;
+  color: rgb(7, 0, 0) !important;
+}
+
+.ty-edit-button {
+  border: solid !important;
+  background-color: rgba(126, 10, 110, 0.8) !important;
+  font-size: 6px !important;
+  color: rgb(236, 167, 167) !important;
 }

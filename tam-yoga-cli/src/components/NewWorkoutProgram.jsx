@@ -75,12 +75,12 @@ class NewWorkoutProgram extends React.Component {
       <div className="container py-5">
         <div className="row">
           <div className="col-sm-12 col-lg-6 offset-lg-3">
-            <h1 className="display-4">
+            <h1 className="display-4 ty-title">
               Add a new plan to your awesome workout collection
             </h1>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label htmlFor="workoutDescription">Workout description</label>
+                <label className="ty-label" htmlFor="workoutDescription">Workout description</label>
                 <textarea
                   name="description"
                   id="workoutDescription"
@@ -91,7 +91,7 @@ class NewWorkoutProgram extends React.Component {
               </div>
               <br/>
               <div className="form-group">
-                <label htmlFor="workoutCategory">Category</label>
+                <label className="ty-label" htmlFor="workoutCategory">Category</label>
                 
                 <Dropdown options={workout_categories} onChange={this.onSelect} value={defaultOption} placeholder="Select category" className='new-workout-field'/>
               </div>
