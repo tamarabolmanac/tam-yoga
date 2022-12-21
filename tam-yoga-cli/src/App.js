@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import React from "react";
 import { Link } from "react-router-dom";
 import './App.css';
+import './style/links.css'
 import Home from "./components/Home"
 import WorkoutProgram from "../src/components/WorkoutPrograms";
 import NewWorkoutProgram from "../src/components/NewWorkoutProgram";

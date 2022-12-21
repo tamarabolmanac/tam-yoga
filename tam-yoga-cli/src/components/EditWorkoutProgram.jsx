@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './NewWorkoutPlan.css';
+import './Dialog.css'
 import { useParams } from "react-router";
 import { useState, useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import Dialog from '../components/DeleteDialog.jsx'
 
 function EditWorkoutProgram() {
-
   let { id } = useParams();
   const [wp, setWorkoutProgram] = useState(null);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   useEffect(() => {
     const url_edit = `http://localhost:3000/api/v1/workout_programs/${id}`
@@ -42,6 +44,15 @@ function EditWorkoutProgram() {
       }
     })
   }
+
+  const handleOpen= e => {
+    setIsDialogOpen(true)
+
+  }
+
+  const handleClose= e => {
+    setIsDialogOpen(false)
+  }
   
   return (
     <div>
@@ -70,9 +81,19 @@ function EditWorkoutProgram() {
               Save changes
             </button>
             <br/>
-            <Link to="/workout_programs" className="btn btn-link mt-3">
+            <button onClick={ handleOpen } className="btn btn-link mt-3 ty-button">
+              Delete
+            </button>
+            <Link to="/workout_programs" className="btn btn-link mt-3 ty-float-right ty-link">
               Back to plans
             </Link>
+
+            <div className="container">
+                {
+                  isDialogOpen &&
+                  <Dialog wp={wp} handleClose={handleClose}/>
+                }
+            </div>
           </form>
         </div>
       :

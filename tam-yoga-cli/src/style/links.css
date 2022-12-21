@@ -1,0 +1,10 @@
+.ty-link:link,
+.ty-link:visited,
+.ty-link:focus {
+  background: rgb(231, 73, 210);
+  color: black !important;
+}
+
+.ty-link:hover {
+  background: orange !important;
+}

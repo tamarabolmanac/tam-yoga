@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom"
 import './WorkoutPrograms.css'
 
+
 class WorkoutPrograms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      workout_programs: []
+      workout_programs: [],
+      isDialogOpen: false
     }
   }
 

@@ -12,7 +12,9 @@ class Api::V1::WorkoutProgramsController < ApplicationController
   end
 
   def destroy
-    @workout_program&.destroy
+    wp = WorkoutProgram.find(params[:id])
+    wp&.destroy
+
     render json: { message: 'Program deleted!' }
   end
 
@@ -24,7 +26,8 @@ class Api::V1::WorkoutProgramsController < ApplicationController
 
   def update
     @workout_program.update!(wp_params)
-    render json: @workout_programs
+    
+    render json: { message: "Workout plan deleted"}
   end
 
   private
