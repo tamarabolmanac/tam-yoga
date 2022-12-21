@@ -1,5 +1,5 @@
 class Api::V1::WorkoutProgramsController < ApplicationController
-  before_action :set_workout_program, only: %i[show, destroy]
+  before_action :set_workout_program, only: %i[show, destroy, update]
 
   def index
     workout_programs = WorkoutProgram.all
@@ -16,6 +16,17 @@ class Api::V1::WorkoutProgramsController < ApplicationController
     render json: { message: 'Program deleted!' }
   end
 
+  def show
+    wp = WorkoutProgram.find(params[:id])
+    
+    render json: wp
+  end
+
+  def update
+    @workout_program.update!(wp_params)
+    render json: @workout_programs
+  end
+
   private
 
   def wp_params
@@ -23,6 +34,6 @@ class Api::V1::WorkoutProgramsController < ApplicationController
   end
   
   def set_workout_program
-    @workout_program = WorkoutProgram.find(oarams[:id])
+    @workout_program = WorkoutProgram.find(params[:id])
   end
 end
